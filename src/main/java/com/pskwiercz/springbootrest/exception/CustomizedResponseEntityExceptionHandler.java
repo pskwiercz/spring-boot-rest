@@ -21,7 +21,6 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
                 new ResponseException(new Date(), ex.getMessage(), request.getDescription(false));
 
         return new ResponseEntity(responseException, HttpStatus.INTERNAL_SERVER_ERROR);
-
     }
 
     @ExceptionHandler(UserNotFoundException.class)
@@ -31,6 +30,5 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
                 new ResponseException(new Date(), ex.getMessage(), request.getDescription(false));
 
         return new ResponseEntity(responseException, HttpStatus.NOT_FOUND);
-
     }
 }

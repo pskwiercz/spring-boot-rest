@@ -13,11 +13,6 @@ public class ResponseException extends RuntimeException {
         this.details = details;
     }
 
-    @Override
-    public synchronized Throwable fillInStackTrace() {
-        return this;
-    }
-
     public Date getTimestamp() {
         return timestamp;
     }
@@ -28,5 +23,11 @@ public class ResponseException extends RuntimeException {
 
     public String getDetails() {
         return details;
+    }
+
+    // Fix on DevTools to not print stack trace in REST response
+    @Override
+    public synchronized Throwable fillInStackTrace() {
+        return this;
     }
 }
